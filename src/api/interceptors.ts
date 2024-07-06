@@ -4,11 +4,11 @@ import {errorCatch} from "@/api/error";
 import {authService} from "@/services/auth.service";
 
 const options: CreateAxiosDefaults = {
-  baseURL: process.env.API_URL,
+  baseURL: 'http://localhost:4200/api',
   headers: {
     "Content-Type": "application/json",
   },
-  withCredentials: true
+  withCredentials: true,
 }
 
 const axiosClassic = axios.create(options)
