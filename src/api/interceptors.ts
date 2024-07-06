@@ -1,6 +1,7 @@
 import axios,{ type CreateAxiosDefaults } from "axios";
 import {getAccessToken, removeFromStorage} from "@/services/auth-token.service";
 import {errorCatch} from "@/api/error";
+import {authService} from "@/services/auth.service";
 
 const options: CreateAxiosDefaults = {
   baseURL: process.env.API_URL,
