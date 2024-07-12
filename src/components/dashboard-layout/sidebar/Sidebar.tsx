@@ -53,9 +53,9 @@ export function Sidebar() {
 							size={38}
 						/>
 						<span className='text-2xl font-bold relative'>
-                            RED Planner
+                            Planner Record
                             <span className='absolute -top-1 -right-6 text-xs opacity-40 rotate-[18deg] font-normal'>
-                                beta
+																	beta
                             </span>
                         </span>
 					</Link>

@@ -22,4 +22,4 @@ class TaskService {
   }
 }
 
-export const taskServe = new TaskService()
+export const taskService = new TaskService()
