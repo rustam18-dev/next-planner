@@ -1,46 +1,46 @@
-import type {Metadata} from 'next'
-import {Noto_Sans} from 'next/font/google'
-import {Toaster} from 'sonner'
+import type { Metadata } from 'next'
+import { Noto_Sans } from 'next/font/google'
+import { Toaster } from 'sonner'
 
-import {SITE_NAME} from '@/constants/seo.constants'
+import { SITE_NAME } from '@/constants/seo.constants'
 
 import './globals.scss'
-import {Providers} from './providers'
+import { Providers } from './providers'
 
 const zen = Noto_Sans({
-  subsets: ['cyrillic', 'latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  display: 'swap',
-  variable: '--font-zen',
-  style: ['normal']
+	subsets: ['cyrillic', 'latin'],
+	weight: ['300', '400', '500', '600', '700'],
+	display: 'swap',
+	variable: '--font-zen',
+	style: ['normal']
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: SITE_NAME,
-    template: `%s | ${SITE_NAME}`
-  },
-  description: 'The BEST planner on Next.js'
+	title: {
+		default: SITE_NAME,
+		template: `%s | ${SITE_NAME}`
+	},
+	description: 'Best one for planning from RED GROUP [htmllessons.ru]'
 }
 
 export default function RootLayout({
-                                     children
-                                   }: Readonly<{
-  children: React.ReactNode
+	children
+}: Readonly<{
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang='en'>
-    <body className={zen.className} style={{color: 'white'}}>
-    <Providers>
-      {children}
+	return (
+		<html lang='en'>
+			<body className={zen.className} style={{color: 'white'}}>
+				<Providers>
+					{children}
 
-      <Toaster
-        theme='dark'
-        position='bottom-right'
-        duration={1500}
-      />
-    </Providers>
-    </body>
-    </html>
-  )
+					<Toaster
+						theme='dark'
+						position='bottom-right'
+						duration={1500}
+					/>
+				</Providers>
+			</body>
+		</html>
+	)
 }

@@ -1,29 +1,43 @@
-'use client'
+'use client';
 
-import { GanttChartSquare } from 'lucide-react'
-import Link from 'next/link'
+import { GanttChartSquare } from 'lucide-react';
+import Link from 'next/link';
+import { Resizable } from 're-resizable';
+import { SetStateAction, useEffect, useState } from 'react';
 
-import { COLORS } from '@/constants/color.constants'
 
-import { LogoutButton } from './LogoutButton'
+
+import { COLORS } from '@/constants/color.constants';
+
+
+
+import { LogoutButton } from './LogoutButton';
 import { MenuItem } from './MenuItem'
 import { MENU } from './menu.data'
-import { Resizable } from 're-resizable'
-import { useEffect, useState } from 'react'
 
 export function Sidebar() {
 	const [width, setWidth] = useState(() => {
-		const savedWidth = localStorage.getItem('sidebarWidth');
-		return savedWidth ? parseInt(savedWidth) : 200; // 200 - значение по умолчанию
-	});
+		const savedWidth = window.localStorage.getItem('sidebarWidth')
+		return savedWidth ? parseInt(savedWidth) : 200 // 200 - значение по умолчанию
+	})
 
 	useEffect(() => {
-		localStorage.setItem('sidebarWidth', String(width));
-	}, [width]);
+		localStorage.setItem('sidebarWidth', String(width))
+	}, [width])
 
-	const handleResizeStop = (e, direction, ref) => {
-		setWidth(ref.style.width.replace('px', ''));
-	};
+	const handleResizeStop = (
+		e: any,
+		direction: any,
+		ref: {
+			style: {
+				width: {
+					replace: (arg0: string, arg1: string) => SetStateAction<number>
+				}
+			}
+		}
+	) => {
+		setWidth(ref.style.width.replace('px', ''))
+	}
 
 	return (
 		<Resizable
@@ -39,7 +53,7 @@ export function Sidebar() {
 				topRight: false,
 				bottomRight: false,
 				bottomLeft: false,
-				topLeft: false,
+				topLeft: false
 			}}
 		>
 			<aside className='border-r border-r-border h-full bg-sidebar flex flex-col justify-between'>
@@ -53,11 +67,11 @@ export function Sidebar() {
 							size={38}
 						/>
 						<span className='text-2xl font-bold relative'>
-                            Planner Record
-                            <span className='absolute -top-1 -right-6 text-xs opacity-40 rotate-[18deg] font-normal'>
-																	beta
-                            </span>
-                        </span>
+							Planner Record
+							<span className='absolute -top-1 -right-6 text-xs opacity-40 rotate-[18deg] font-normal'>
+								beta
+							</span>
+						</span>
 					</Link>
 					<div className='p-3 relative'>
 						<LogoutButton />
@@ -83,5 +97,5 @@ export function Sidebar() {
 				</footer>
 			</aside>
 		</Resizable>
-	);
+	)
 }

@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query'
-import { taskService } from '@/services/task.service'
 import { useEffect, useState } from 'react'
+
 import { ITaskResponse } from '@/types/task.types'
 
+import { taskService } from '@/services/task.service'
+
 export function useTasks() {
-	const {data} = useQuery({
+	const { data } = useQuery({
 		queryKey: ['tasks'],
 		queryFn: () => taskService.getTasks()
 	})
@@ -15,5 +17,5 @@ export function useTasks() {
 		setItems(data?.data)
 	}, [data?.data])
 
-	return {items, setItems}
+	return { items, setItems }
 }

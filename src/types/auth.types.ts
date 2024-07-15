@@ -1,21 +1,21 @@
 export interface IAuthForm {
-  email: string
-  password: string
+	email: string
+	password: string
 }
 
 export interface IUser {
-  id: string
-  name?: string
-  email: string
+	id: number
+	name?: string
+	email: string
 
-  workInterval?: number
-  breakInterval?: number
-  intervalCount?: number
+	workInterval?: number
+	breakInterval?: number
+	intervalsCount?: number
 }
 
 export interface IAuthResponse {
-  accessToken: string
-  user: IUser
+	accessToken: string
+	user: IUser
 }
 
-export type TypeUserForm = Omit<IUser, 'id'> & {password?: string}
+export type TypeUserForm = Omit<IUser, 'id'> & { password?: string }

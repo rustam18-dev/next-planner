@@ -1,10 +1,12 @@
-import { useProfile } from '@/hooks/useProfile'
 import { useEffect } from 'react'
 import { UseFormReset } from 'react-hook-form'
+
 import { TypeUserForm } from '@/types/auth.types'
 
+import { useProfile } from '@/hooks/useProfile'
+
 export function useInitialData(reset: UseFormReset<TypeUserForm>) {
-	const {data, isSuccess} =  useProfile()
+	const { data, isSuccess } = useProfile()
 
 	useEffect(() => {
 		if (isSuccess && data) {
@@ -12,11 +14,9 @@ export function useInitialData(reset: UseFormReset<TypeUserForm>) {
 				email: data.user.email,
 				name: data.user.name,
 				breakInterval: data.user.breakInterval,
-				intervalCount: data.user.intervalCount,
+				intervalsCount: data.user.intervalsCount,
 				workInterval: data.user.workInterval
 			})
 		}
-
 	}, [isSuccess])
-
 }

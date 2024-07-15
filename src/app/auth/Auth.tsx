@@ -55,32 +55,24 @@ export function Auth() {
 					type='email'
 					extra='mb-4'
 					{...register('email', {
-						required: 'Email is required'
+						required: 'Email is required!'
 					})}
 				/>
 
 				<Field
 					id='password'
-					label='Password:'
-					placeholder='Enter password:'
+					label='Password: '
+					placeholder='Enter password: '
 					type='password'
-					extra='mb-6'
 					{...register('password', {
-						required: 'Password is required'
+						required: 'Password is required!'
 					})}
+					extra='mb-6'
 				/>
 
 				<div className='flex items-center gap-5 justify-center'>
-					<Button onClick={() => {
-						setIsLoginForm(true)
-					}}>
-						Login
-					</Button>
-					<Button onClick={() => {
-						setIsLoginForm(false)
-					}}>
-						Register
-					</Button>
+					<Button onClick={() => setIsLoginForm(true)}>Login</Button>
+					<Button onClick={() => setIsLoginForm(false)}>Register</Button>
 				</div>
 			</form>
 		</div>

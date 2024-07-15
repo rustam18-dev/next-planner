@@ -1,10 +1,11 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query/build/modern'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+
 import { taskService } from '@/services/task.service'
 
 export function useDeleteTask() {
 	const queryClient = useQueryClient()
 
-	const {mutate: deleteTask, isPending: isDeletePending} = useMutation({
+	const { mutate: deleteTask, isPending: isDeletePending } = useMutation({
 		mutationKey: ['delete task'],
 		mutationFn: (id: string) => taskService.deleteTask(id),
 		onSuccess() {
@@ -14,5 +15,5 @@ export function useDeleteTask() {
 		}
 	})
 
-	return {deleteTask, isDeletePending}
+	return { deleteTask, isDeletePending }
 }

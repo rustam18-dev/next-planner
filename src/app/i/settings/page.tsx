@@ -1,8 +1,10 @@
-import type { Metadata } from 'next';
-import { Heading } from '@/components/ui/Heading';
-import { NO_INDEX_PAGE } from '@/constants/seo.constants';
-import { Settings } from '@/app/i/settings/Settings';
+import type { Metadata } from 'next'
 
+import { Heading } from '@/components/ui/Heading'
+
+import { NO_INDEX_PAGE } from '@/constants/seo.constants'
+
+import { Settings } from './Settings'
 
 export const metadata: Metadata = {
 	title: 'Settings',
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
 export default function SettingsPage() {
 	return (
 		<div>
-			<Heading title={'Settings'} />
+			<Heading title='Settings' />
 			<Settings />
 		</div>
 	)

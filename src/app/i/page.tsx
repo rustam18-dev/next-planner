@@ -1,18 +1,21 @@
-import {Metadata} from "next";
-import {NO_INDEX_PAGE} from "@/constants/seo.constants";
-import {Auth} from "@/app/auth/Auth";
-import { Heading } from '@/components/ui/Heading'
-import Statistics from '@/app/i/Statistics'
+import type { Metadata } from 'next'
 
+import { Heading } from '@/components/ui/Heading'
+
+import { NO_INDEX_PAGE } from '@/constants/seo.constants'
+
+import { Statistics } from './Statistics'
 
 export const metadata: Metadata = {
-	title: 'Auth',
+	title: 'Dashboard',
 	...NO_INDEX_PAGE
 }
 
-export default function Dashboard() {
-	return <div>
-		<Heading title={'Statistics'} />
-		<Statistics />
-	</div>
+export default function DashboardPage() {
+	return (
+		<div>
+			<Heading title='Statistics' />
+			<Statistics />
+		</div>
+	)
 }

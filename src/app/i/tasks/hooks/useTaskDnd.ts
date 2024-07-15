@@ -1,12 +1,14 @@
-import { useUpdateTask } from '@/app/tasks/hooks/useUpdateTask'
 import { DropResult } from '@hello-pangea/dnd'
-import { FILTERS } from '@/app/tasks/columns.data'
+
+import { FILTERS } from '../columns.data'
+
+import { useUpdateTask } from './useUpdateTask'
 
 export function useTaskDnd() {
-	const {updateTask} = useUpdateTask()
+	const { updateTask } = useUpdateTask()
 
-	const onDropEnd = (result: DropResult) => {
-		if (!result?.destination) return
+	const onDragEnd = (result: DropResult) => {
+		if (!result.destination) return
 
 		const destinationColumnId = result.destination.droppableId
 
@@ -24,6 +26,7 @@ export function useTaskDnd() {
 		}
 
 		const newCreatedAt = FILTERS[destinationColumnId].format()
+
 		updateTask({
 			id: result.draggableId,
 			data: {
@@ -33,5 +36,5 @@ export function useTaskDnd() {
 		})
 	}
 
-	return {onDropEnd}
+	return { onDragEnd }
 }
